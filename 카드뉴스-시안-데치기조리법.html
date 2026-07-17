@@ -1,0 +1,157 @@
+<title>카드뉴스 시안 — 칼륨 빼는 데치기 조리법</title>
+<style>
+  :root{
+    --teal:#0E6E63; --teal-deep:#0A544B; --ink:#12302B; --ink-soft:#4b635d;
+    --cream:#F4F8F6; --white:#fff; --border:#dbe7e2;
+    --g:#2E9E5B; --g-bg:#E4F4EA; --r:#D24545; --r-bg:#F9E3E3; --a:#C98A00; --a-bg:#FBF0D6;
+    --font:"Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9efec;font-family:var(--font);color:var(--ink);padding:28px 16px;}
+  .page-head{max-width:520px;margin:0 auto 22px;text-align:center;}
+  .page-head h1{font-size:20px;margin:0 0 6px;letter-spacing:-.02em;}
+  .page-head p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.5;}
+  .badge{display:inline-block;background:var(--teal);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:10px;letter-spacing:.03em;}
+  .deck{display:flex;flex-direction:column;gap:20px;align-items:center;}
+  .slide{width:100%;max-width:480px;aspect-ratio:1/1;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 10px 30px rgba(18,48,43,.14);background:var(--white);display:flex;flex-direction:column;}
+  .slide-no{position:absolute;top:16px;right:18px;font-size:13px;font-weight:700;color:var(--ink-soft);background:rgba(255,255,255,.8);border-radius:999px;padding:3px 10px;z-index:3;}
+  .brand{position:absolute;top:16px;left:18px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:14px;color:var(--teal-deep);z-index:3;}
+  .brand .logo{width:22px;height:22px;border-radius:7px;background:linear-gradient(145deg,var(--teal),var(--teal-deep));display:grid;place-items:center;color:#fff;font-size:12px;}
+  .pad{padding:56px 34px 30px;flex:1;display:flex;flex-direction:column;}
+  .foot-note{padding:0 34px 20px;font-size:10.5px;color:var(--ink-soft);line-height:1.45;}
+
+  .cover{background:linear-gradient(160deg,var(--teal),var(--teal-deep));color:#fff;}
+  .cover .pad{justify-content:center;}
+  .cover .kicker{font-size:15px;font-weight:600;opacity:.9;margin-bottom:14px;}
+  .cover h2{font-size:37px;line-height:1.22;letter-spacing:-.03em;margin:0;font-weight:800;}
+  .cover h2 .hl{background:rgba(255,255,255,.18);border-radius:8px;padding:0 8px;}
+  .cover .sub{margin-top:20px;font-size:16px;opacity:.92;}
+  .cover .swipe{position:absolute;bottom:24px;left:34px;font-size:14px;font-weight:600;opacity:.9;}
+  .cover .big-emoji{position:absolute;bottom:60px;right:-6px;font-size:66px;opacity:.22;}
+
+  .slide h3.title{font-size:27px;line-height:1.28;letter-spacing:-.02em;margin:0 0 18px;font-weight:800;}
+  .lead{font-size:16.5px;color:var(--ink-soft);line-height:1.6;}
+  .lead b{color:var(--teal-deep);}
+
+  .steps{display:flex;flex-direction:column;gap:16px;margin-top:6px;}
+  .step{display:flex;gap:15px;align-items:flex-start;}
+  .step .num{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px;}
+  .step .txt h4{margin:0 0 3px;font-size:19px;font-weight:800;}
+  .step .txt p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.45;}
+
+  .warn{background:var(--r-bg);border-radius:16px;padding:22px;text-align:center;}
+  .warn .big{font-size:26px;font-weight:800;color:var(--r);line-height:1.3;}
+  .warn .desc{margin-top:12px;font-size:16px;color:var(--ink);line-height:1.55;}
+
+  .head-pill{display:inline-flex;align-items:center;gap:8px;font-size:19px;font-weight:800;padding:8px 16px;border-radius:12px;margin-bottom:16px;width:fit-content;background:var(--a-bg);color:var(--a);}
+  .list{display:flex;flex-direction:column;gap:11px;margin-top:6px;}
+  .item{display:flex;align-items:center;gap:12px;padding:12px 15px;border-radius:13px;font-size:18px;font-weight:600;background:var(--cream);}
+  .item .em{font-size:22px;}
+
+  .cta{background:var(--cream);}
+  .cta .pad{justify-content:center;text-align:center;align-items:center;}
+  .cta .big{font-size:29px;font-weight:800;letter-spacing:-.02em;line-height:1.3;}
+  .cta .row{display:flex;gap:10px;margin-top:22px;}
+  .cta .btn{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;font-size:14px;font-weight:700;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:4px;}
+  .cta .btn .i{font-size:22px;}
+  .cta .free{margin-top:22px;background:var(--teal);color:#fff;border-radius:14px;padding:16px 20px;font-weight:700;font-size:16px;}
+  .cta .free small{display:block;font-weight:500;opacity:.9;font-size:13px;margin-top:3px;}
+
+  @media print{ body{background:#fff;padding:0;} .page-head{display:none;} .slide{box-shadow:none;page-break-after:always;max-width:100%;border-radius:0;} }
+</style>
+
+<div class="page-head">
+  <div class="badge">카드뉴스 시안 · D8</div>
+  <h1>칼륨 빼는 데치기 조리법 — 캐러셀 6장</h1>
+  <p>인스타그램 정사각형(1080×1080) 규격 · 각 슬라이드를 오른쪽으로 넘기는 캐러셀입니다.</p>
+</div>
+
+<div class="deck">
+
+  <!-- 1. 표지 -->
+  <div class="slide cover">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">1 / 6</span>
+    <div class="pad">
+      <div class="kicker">투석 환자 식단 · 저장해두세요</div>
+      <h2>감자·시금치,<br>못 먹는다고요?<br><span class="hl">데치면 됩니다</span></h2>
+      <div class="sub">칼륨을 물로 빼내는 4단계 조리법</div>
+    </div>
+    <div class="big-emoji">🥬</div>
+    <div class="swipe">넘겨서 확인 →</div>
+  </div>
+
+  <!-- 2. 왜 데치나 -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">2 / 6</span>
+    <div class="pad">
+      <h3 class="title">왜 데치면<br>먹을 수 있을까요?</h3>
+      <p class="lead">칼륨은 <b>물에 잘 녹는</b> 성질이 있어요.<br><br>그래서 채소를 썰어 물에 담그고 데치면, 칼륨의 상당량이 <b>물로 빠져나갑니다.</b><br><br>덕분에 감자·시금치 같은 고칼륨 채소도 <b>양을 조절해</b> 즐길 수 있어요.</p>
+    </div>
+    <div class="foot-note">※ 데치기는 칼륨을 '줄이는' 방법이지 '0으로 만드는' 것은 아니에요.</div>
+  </div>
+
+  <!-- 3. 4단계 (1,2) -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">3 / 6</span>
+    <div class="pad">
+      <h3 class="title">칼륨 빼는 4단계</h3>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div class="txt"><h4>잘게 썰기</h4><p>표면적이 넓을수록 칼륨이 잘 빠져요</p></div></div>
+        <div class="step"><span class="num">2</span><div class="txt"><h4>찬물에 담그기</h4><p>최소 30분 이상, 물에 담가두기</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 4단계 (3,4) -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">4 / 6</span>
+    <div class="pad">
+      <h3 class="title">칼륨 빼는 4단계</h3>
+      <div class="steps">
+        <div class="step"><span class="num">3</span><div class="txt"><h4>끓는 물에 데치기</h4><p>데친 물은 반드시 버려요 (국물로 쓰지 않기)</p></div></div>
+        <div class="step"><span class="num">4</span><div class="txt"><h4>한 번 더 헹구기</h4><p>데친 뒤 헹구면 칼륨이 더 빠져요</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 핵심 주의 + 대상 채소 -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">5 / 6</span>
+    <div class="pad">
+      <div class="warn">
+        <div class="big">🚫 데친 물·국물은<br>꼭 버리세요</div>
+        <div class="desc">빠져나온 칼륨이 그 물에 녹아 있어요.<br>국·찌개 국물도 같은 이유로 남기세요.</div>
+      </div>
+      <div style="margin-top:20px;">
+        <div style="font-size:15px;font-weight:700;color:var(--ink-soft);margin-bottom:10px;">이런 채소에 특히 좋아요</div>
+        <div class="list">
+          <div class="item"><span class="em">🥔</span> 감자 · 고구마 · 단호박</div>
+          <div class="item"><span class="em">🥬</span> 시금치 · 근대 · 당근</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-note">※ 데쳐도 '많이' 먹으면 소용없어요. 조리법 + 양 조절을 함께.</div>
+  </div>
+
+  <!-- 6. CTA -->
+  <div class="slide cta">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">6 / 6</span>
+    <div class="pad">
+      <div class="big">요리할 때 꺼내 볼 수 있게<br>저장해두세요 💾</div>
+      <div class="row">
+        <div class="btn"><span class="i">💾</span>저장</div>
+        <div class="btn"><span class="i">📤</span>공유</div>
+        <div class="btn"><span class="i">➕</span>팔로우</div>
+      </div>
+      <div class="free">📄 저칼륨 식품 50선 무료 PDF<br><small>프로필 링크에서 받아보세요</small></div>
+    </div>
+    <div class="foot-note" style="text-align:center;">일반적 정보이며 진단·처방을 대체하지 않아요. 개인 상태에 따라 다르니 담당 의료진과 상의하세요. · 출처: 식품의약품안전처 식품영양성분DB</div>
+  </div>
+
+</div>
