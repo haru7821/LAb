@@ -1,0 +1,168 @@
+<title>카드뉴스 시안 — 국물, 왜 남겨야 할까</title>
+<style>
+  :root{
+    --teal:#0E6E63; --teal-deep:#0A544B; --ink:#12302B; --ink-soft:#4b635d;
+    --cream:#F4F8F6; --white:#fff; --border:#dbe7e2;
+    --g:#2E9E5B; --g-bg:#E4F4EA; --r:#D24545; --r-bg:#F9E3E3; --a:#C98A00; --a-bg:#FBF0D6;
+    --font:"Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9efec;font-family:var(--font);color:var(--ink);padding:28px 16px;}
+  .page-head{max-width:520px;margin:0 auto 22px;text-align:center;}
+  .page-head h1{font-size:20px;margin:0 0 6px;letter-spacing:-.02em;}
+  .page-head p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.5;}
+  .badge{display:inline-block;background:var(--teal);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:10px;letter-spacing:.03em;}
+  .deck{display:flex;flex-direction:column;gap:20px;align-items:center;}
+  .slide{width:100%;max-width:480px;aspect-ratio:1/1;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 10px 30px rgba(18,48,43,.14);background:var(--white);display:flex;flex-direction:column;}
+  .slide-no{position:absolute;top:16px;right:18px;font-size:13px;font-weight:700;color:var(--ink-soft);background:rgba(255,255,255,.8);border-radius:999px;padding:3px 10px;z-index:3;}
+  .brand{position:absolute;top:16px;left:18px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:14px;color:var(--teal-deep);z-index:3;}
+  .brand .logo{width:22px;height:22px;border-radius:7px;background:linear-gradient(145deg,var(--teal),var(--teal-deep));display:grid;place-items:center;color:#fff;font-size:12px;}
+  .pad{padding:56px 34px 30px;flex:1;display:flex;flex-direction:column;}
+  .foot-note{padding:0 34px 20px;font-size:10.5px;color:var(--ink-soft);line-height:1.45;}
+
+  .cover{background:linear-gradient(160deg,var(--teal),var(--teal-deep));color:#fff;}
+  .cover .pad{justify-content:center;}
+  .cover .kicker{font-size:15px;font-weight:600;opacity:.9;margin-bottom:14px;}
+  .cover h2{font-size:38px;line-height:1.22;letter-spacing:-.03em;margin:0;font-weight:800;}
+  .cover h2 .hl{background:rgba(255,255,255,.18);border-radius:8px;padding:0 8px;}
+  .cover .sub{margin-top:20px;font-size:16px;opacity:.92;}
+  .cover .swipe{position:absolute;bottom:24px;left:34px;font-size:14px;font-weight:600;opacity:.9;}
+  .cover .big-emoji{position:absolute;bottom:58px;right:-4px;font-size:66px;opacity:.22;}
+
+  .slide h3.title{font-size:27px;line-height:1.28;letter-spacing:-.02em;margin:0 0 18px;font-weight:800;}
+  .lead{font-size:16.5px;color:var(--ink-soft);line-height:1.6;}
+  .lead b{color:var(--teal-deep);}
+
+  .trio{display:flex;flex-direction:column;gap:12px;margin-top:10px;}
+  .trio .t{display:flex;align-items:center;gap:14px;padding:15px 16px;border-radius:14px;background:var(--cream);}
+  .trio .t .ic{font-size:26px;}
+  .trio .t h4{margin:0 0 2px;font-size:18px;font-weight:800;}
+  .trio .t p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.4;}
+
+  .chain{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
+  .chain .c{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:700;}
+  .chain .c .arw{color:var(--r);font-size:20px;}
+  .chain .note{font-size:15px;color:var(--ink-soft);margin-top:4px;line-height:1.5;}
+
+  .steps{display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+  .step{display:flex;gap:15px;align-items:flex-start;}
+  .step .num{flex:0 0 auto;width:40px;height:40px;border-radius:11px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px;}
+  .step .txt h4{margin:0 0 2px;font-size:18px;font-weight:800;}
+  .step .txt p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.4;}
+
+  .head-pill{display:inline-flex;align-items:center;gap:8px;font-size:19px;font-weight:800;padding:8px 16px;border-radius:12px;margin-bottom:16px;width:fit-content;background:var(--r-bg);color:var(--r);}
+  .list{display:flex;flex-direction:column;gap:11px;margin-top:6px;}
+  .item{display:flex;align-items:center;gap:12px;padding:12px 15px;border-radius:13px;font-size:18px;font-weight:600;background:var(--r-bg);}
+  .item .em{font-size:22px;}
+
+  .cta{background:var(--cream);}
+  .cta .pad{justify-content:center;text-align:center;align-items:center;}
+  .cta .big{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.32;}
+  .cta .row{display:flex;gap:10px;margin-top:22px;}
+  .cta .btn{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;font-size:14px;font-weight:700;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:4px;}
+  .cta .btn .i{font-size:22px;}
+  .cta .free{margin-top:22px;background:var(--teal);color:#fff;border-radius:14px;padding:16px 20px;font-weight:700;font-size:16px;}
+  .cta .free small{display:block;font-weight:500;opacity:.9;font-size:13px;margin-top:3px;}
+
+  @media print{ body{background:#fff;padding:0;} .page-head{display:none;} .slide{box-shadow:none;page-break-after:always;max-width:100%;border-radius:0;} }
+</style>
+
+<div class="page-head">
+  <div class="badge">카드뉴스 시안 · 3번째 게시물</div>
+  <h1>국물, 왜 남겨야 할까 — 캐러셀 6장</h1>
+  <p>인스타그램 정사각형(1080×1080) 규격 · 각 슬라이드를 오른쪽으로 넘기는 캐러셀입니다.</p>
+</div>
+
+<div class="deck">
+
+  <!-- 1. 표지 -->
+  <div class="slide cover">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">1 / 6</span>
+    <div class="pad">
+      <div class="kicker">투석 환자 식단 · 저장해두세요</div>
+      <h2>국물,<br>다 마시고<br><span class="hl">계셨나요?</span></h2>
+      <div class="sub">국·찌개 국물을 남겨야 하는 이유</div>
+    </div>
+    <div class="big-emoji">🍲</div>
+    <div class="swipe">넘겨서 확인 →</div>
+  </div>
+
+  <!-- 2. 국물의 정체 -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">2 / 6</span>
+    <div class="pad">
+      <h3 class="title">국물 한 그릇에<br>다 모여 있어요</h3>
+      <div class="trio">
+        <div class="t"><span class="ic">🧂</span><div><h4>나트륨</h4><p>국·찌개 간의 대부분이 국물에</p></div></div>
+        <div class="t"><span class="ic">🥬</span><div><h4>칼륨</h4><p>재료에서 우러나와 국물에 녹아요</p></div></div>
+        <div class="t"><span class="ic">💧</span><div><h4>수분</h4><p>국물 자체가 '먹는 물'이에요</p></div></div>
+      </div>
+    </div>
+    <div class="foot-note">※ 투석 환자가 관리해야 할 3가지가 국물에 한꺼번에 들어 있어요.</div>
+  </div>
+
+  <!-- 3. 왜 위험 (연쇄) -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">3 / 6</span>
+    <div class="pad">
+      <h3 class="title">짜게 먹으면<br>이렇게 이어져요</h3>
+      <div class="chain">
+        <div class="c">🧂 짜게 먹기 <span class="arw">→</span> 😩 갈증</div>
+        <div class="c">😩 갈증 <span class="arw">→</span> 💧 물 더 마심</div>
+        <div class="c">💧 물↑ <span class="arw">→</span> 🫀 부종·혈압·심장 부담</div>
+        <p class="note">게다가 국물엔 칼륨도 녹아 있어, 국물을 마시면 칼륨까지 함께 들어와요.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 실천법 -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">4 / 6</span>
+    <div class="pad">
+      <h3 class="title">이렇게 드세요</h3>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div class="txt"><h4>건더기 위주로</h4><p>국물은 남기고 건더기 중심으로</p></div></div>
+        <div class="step"><span class="num">2</span><div class="txt"><h4>데친·삶은 국물은 쓰지 않기</h4><p>칼륨이 그 물에 녹아 있어요</p></div></div>
+        <div class="step"><span class="num">3</span><div class="txt"><h4>간은 싱겁게</h4><p>짠맛 대신 식초·후추·허브로 풍미</p></div></div>
+      </div>
+    </div>
+    <div class="foot-note">※ 국물을 '조금'만 남겨도 나트륨·수분 부담이 크게 줄어요.</div>
+  </div>
+
+  <!-- 5. 특히 조심 -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">5 / 6</span>
+    <div class="pad">
+      <div class="head-pill">🔴 특히 국물 조심</div>
+      <div class="list">
+        <div class="item"><span class="em">🍜</span> 라면 · 부대찌개</div>
+        <div class="item"><span class="em">🍲</span> 찌개 · 전골</div>
+        <div class="item"><span class="em">🍚</span> 국밥 · 설렁탕 · 곰탕</div>
+        <div class="item"><span class="em">🥢</span> 우동 · 칼국수 국물</div>
+      </div>
+    </div>
+    <div class="foot-note">※ 외식·배달 국물 요리는 나트륨이 특히 높아요. 건더기 위주로!</div>
+  </div>
+
+  <!-- 6. CTA -->
+  <div class="slide cta">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">6 / 6</span>
+    <div class="pad">
+      <div class="big">외식할 때 떠올릴 수 있게<br>저장해두세요 💾</div>
+      <div class="row">
+        <div class="btn"><span class="i">💾</span>저장</div>
+        <div class="btn"><span class="i">📤</span>공유</div>
+        <div class="btn"><span class="i">➕</span>팔로우</div>
+      </div>
+      <div class="free">📄 저칼륨 식품 50선 무료 PDF<br><small>댓글에 "식단" 남기면 DM으로 보내드려요</small></div>
+    </div>
+    <div class="foot-note" style="text-align:center;">일반적 정보이며 진단·처방을 대체하지 않아요. 개인 상태에 따라 다르니 담당 의료진과 상의하세요. · 출처: 식품의약품안전처 식품영양성분DB</div>
+  </div>
+
+</div>
