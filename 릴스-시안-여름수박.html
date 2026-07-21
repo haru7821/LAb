@@ -1,0 +1,142 @@
+<title>릴스 프레임 — 여름 수박, 괜찮을까요?</title>
+<style>
+  :root{
+    --teal:#0E6E63; --teal-deep:#0A544B; --ink:#12302B; --ink-soft:#4b635d;
+    --cream:#F4F8F6; --white:#fff; --border:#dbe7e2;
+    --g:#2E9E5B; --g-bg:#E4F4EA; --r:#D24545; --r-bg:#F9E3E3; --a:#C98A00; --a-bg:#FBF0D6;
+    --font:"Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9efec;font-family:var(--font);color:var(--ink);padding:28px 16px;}
+  .page-head{max-width:405px;margin:0 auto 20px;text-align:center;}
+  .page-head h1{font-size:19px;margin:0 0 6px;letter-spacing:-.02em;}
+  .page-head p{margin:0;color:var(--ink-soft);font-size:13.5px;line-height:1.5;}
+  .badge{display:inline-block;background:var(--teal);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:10px;}
+  .deck{display:flex;flex-direction:column;gap:20px;align-items:center;}
+  .slide{width:100%;max-width:405px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 10px 30px rgba(18,48,43,.14);background:var(--white);display:flex;flex-direction:column;}
+  .slide-no{position:absolute;top:20px;right:20px;font-size:13px;font-weight:700;color:var(--ink-soft);background:rgba(255,255,255,.82);border-radius:999px;padding:4px 11px;z-index:3;}
+  .brand{position:absolute;top:20px;left:20px;display:flex;align-items:center;gap:7px;font-weight:800;font-size:15px;color:var(--teal-deep);z-index:3;}
+  .brand .logo{width:24px;height:24px;border-radius:7px;background:linear-gradient(145deg,var(--teal),var(--teal-deep));display:grid;place-items:center;color:#fff;font-size:13px;}
+  .pad{padding:96px 40px 70px;flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .safe-note{position:absolute;bottom:26px;left:0;right:0;padding:0 40px;font-size:11px;color:var(--ink-soft);line-height:1.45;text-align:center;}
+
+  /* Cover */
+  .cover{background:linear-gradient(165deg,var(--teal),var(--teal-deep));color:#fff;}
+  .cover .kicker{font-size:17px;font-weight:600;opacity:.92;margin-bottom:18px;}
+  .cover h2{font-size:52px;line-height:1.18;letter-spacing:-.03em;margin:0;font-weight:800;}
+  .cover .sub{margin-top:26px;font-size:20px;opacity:.94;line-height:1.4;}
+  .cover .melon{position:absolute;bottom:120px;right:-14px;font-size:120px;opacity:.2;}
+
+  .slide h3.title{font-size:38px;line-height:1.24;letter-spacing:-.02em;margin:0 0 30px;font-weight:800;text-align:center;}
+
+  .two{display:flex;flex-direction:column;gap:18px;}
+  .two .card{display:flex;align-items:center;gap:18px;padding:24px;border-radius:18px;background:var(--cream);}
+  .two .card .ic{font-size:44px;}
+  .two .card h4{margin:0 0 4px;font-size:26px;font-weight:800;}
+  .two .card p{margin:0;font-size:16px;color:var(--ink-soft);line-height:1.4;}
+
+  .chain{display:flex;flex-direction:column;gap:20px;align-items:center;}
+  .chain .c{font-size:26px;font-weight:800;text-align:center;line-height:1.35;}
+  .chain .arw{font-size:30px;color:var(--r);}
+  .chain .c small{display:block;font-size:16px;color:var(--ink-soft);font-weight:600;margin-top:4px;}
+
+  .steps{display:flex;flex-direction:column;gap:22px;}
+  .step{display:flex;gap:18px;align-items:center;}
+  .step .num{flex:0 0 auto;width:54px;height:54px;border-radius:15px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800;font-size:26px;}
+  .step .txt h4{margin:0 0 3px;font-size:23px;font-weight:800;}
+  .step .txt p{margin:0;font-size:16px;color:var(--ink-soft);line-height:1.4;}
+
+  .cta{background:var(--cream);}
+  .cta .pad{text-align:center;align-items:center;}
+  .cta .big{font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.3;}
+  .cta .row{display:flex;gap:12px;margin-top:30px;justify-content:center;}
+  .cta .btn{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:16px 20px;font-size:16px;font-weight:700;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;}
+  .cta .btn .i{font-size:28px;}
+  .cta .free{margin-top:28px;background:var(--teal);color:#fff;border-radius:16px;padding:20px 22px;font-weight:700;font-size:18px;line-height:1.35;}
+  .cta .free small{display:block;font-weight:500;opacity:.9;font-size:14px;margin-top:4px;}
+
+  @media print{ body{background:#fff;padding:0;} .page-head{display:none;} .slide{box-shadow:none;page-break-after:always;max-width:100%;border-radius:0;} }
+</style>
+
+<div class="page-head">
+  <div class="badge">릴스 프레임 · 여름 수박</div>
+  <h1>여름 수박, 괜찮을까요? — 세로 5프레임</h1>
+  <p>인스타 릴스 규격(1080×1920, 9:16). 영상 배경/텍스트 프레임으로 쓰거나<br>사진 릴스로 순서대로 넘겨 음악과 함께 올리세요.</p>
+</div>
+
+<div class="deck">
+
+  <!-- 1. 후크 -->
+  <div class="slide cover">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">1 / 5</span>
+    <div class="pad">
+      <div class="kicker">투석 중이라면 잠깐! ✋</div>
+      <h2>여름 수박,<br>괜찮을까요?</h2>
+      <div class="sub">시원하게 한 통… 그전에 30초만요 🍉</div>
+    </div>
+    <div class="melon">🍉</div>
+  </div>
+
+  <!-- 2. 수박의 두 얼굴 -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">2 / 5</span>
+    <div class="pad">
+      <h3 class="title">수박의 두 얼굴</h3>
+      <div class="two">
+        <div class="card"><span class="ic">💧</span><div><h4>수분 약 92%</h4><p>수박은 대부분이 물이에요</p></div></div>
+        <div class="card"><span class="ic">🍉</span><div><h4>칼륨도 있어요</h4><p>많이 먹으면 칼륨도 그만큼</p></div></div>
+      </div>
+    </div>
+    <div class="safe-note">※ 시원한 만큼 '물'과 '칼륨'을 함께 먹는 셈이에요.</div>
+  </div>
+
+  <!-- 3. 여름이 위험한 이유 -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">3 / 5</span>
+    <div class="pad">
+      <h3 class="title">여름이<br>조심스러운 이유</h3>
+      <div class="chain">
+        <div class="c">🥵 더우니까<br><small>수박을 많이·자주 먹게 돼요</small></div>
+        <div class="arw">↓</div>
+        <div class="c">💧🍉 수분 + 칼륨 누적<br><small>몸에 물과 칼륨이 쌓여요</small></div>
+        <div class="arw">↓</div>
+        <div class="c">🫀 부종·혈압·심장 부담</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 이렇게 드세요 -->
+  <div class="slide">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">4 / 5</span>
+    <div class="pad">
+      <h3 class="title">이렇게 즐기세요</h3>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div class="txt"><h4>양을 정해서</h4><p>한 번에 한두 조각, 자주는 X</p></div></div>
+        <div class="step"><span class="num">2</span><div class="txt"><h4>갈증 해소용은 금물</h4><p>목마를 때 수박으로 물 채우지 않기</p></div></div>
+        <div class="step"><span class="num">3</span><div class="txt"><h4>수분은 합산</h4><p>음료·국물과 더해 하루 물 계산에 포함</p></div></div>
+      </div>
+    </div>
+    <div class="safe-note">※ 내 하루 수분·칼륨 허용량은 담당 의료진과 상의해 정하세요.</div>
+  </div>
+
+  <!-- 5. CTA -->
+  <div class="slide cta">
+    <div class="brand"><span class="logo">K</span> Kidney Nature</div>
+    <span class="slide-no">5 / 5</span>
+    <div class="pad">
+      <div class="big">저장하고<br>여름 건강하게 🍉</div>
+      <div class="row">
+        <div class="btn"><span class="i">💾</span>저장</div>
+        <div class="btn"><span class="i">📤</span>공유</div>
+        <div class="btn"><span class="i">➕</span>팔로우</div>
+      </div>
+      <div class="free">📄 저칼륨 식품 50선 무료 PDF<br><small>댓글에 "식단" 남기면 DM으로!</small></div>
+    </div>
+    <div class="safe-note">일반적 정보이며 진단·처방을 대체하지 않아요. 담당 의료진과 상의하세요. · 출처: 식약처 식품영양성분DB</div>
+  </div>
+
+</div>
